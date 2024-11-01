@@ -21,7 +21,7 @@ const locations = [
 
 export const Footer = () => {
     return (
-      <footer className="flex bg-white bg-opacity-80">
+      <footer className="flex bg-white bg-opacity-80 border-t-2 border-gray-300">
         <div className="flex flex-col">
             <p className="p-2 m-2 text-black text-sm">Siguenos en nuestras redes sociales</p>
             <div className="flex flex-row">
@@ -40,7 +40,7 @@ export const Footer = () => {
             </div>
         </div>
 
-        <div className="w-0.5 bg-gray-400 mx-4 mt-2 mb-2 rounded"></div>
+        <div className="border-r-2 border-gray-300 rounded mt-6 mb-6 mx-4"></div>
 
         <div className="flex flex-col">
             {
@@ -52,7 +52,7 @@ export const Footer = () => {
             }
         </div>
 
-        <div className="w-0.5 bg-gray-400 mx-4 mt-2 mb-2 rounded"></div>
+        <div className="border-r-2 border-gray-300 rounded mt-6 mb-6 mx-4"></div>
 
         <div className="flex flex-col">
             <p className="p-2 m-2 text-black text-sm">Nuestras Ubicaciones</p>
@@ -64,10 +64,8 @@ export const Footer = () => {
                 ))
             }
         </div>
-        
-        <div className="w-0.5 bg-gray-400 mx-4 mt-2 mb-2 rounded"></div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-1 items-end">
             <p className="p-2 m-2 text-black text-sm">Copyright © 2024 - Todos los derechos reservados</p>
         </div>
       </footer>

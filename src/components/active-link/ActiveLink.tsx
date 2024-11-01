@@ -13,7 +13,7 @@ export const ActiveLink  = ({path, name}: Props) => {
 
     return (
         <Link href={path} 
-              className={`p-2 m-2 text-white ${style.link} ${pathName===path?style.active: ""}`} key={path}>
+              className={`p-2 m-2 text-black text-sm ${style.link} ${pathName===path?style.active: ""}`} key={path}>
             {name}
         </Link>
     )
