@@ -2,7 +2,6 @@ import HomeIcon from "@/media/pata.png";
 import Link from "next/link";
 import { ActiveLink } from "../active-link/ActiveLink";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 const navItems = [
     {name:'Inicio', path: '/'},

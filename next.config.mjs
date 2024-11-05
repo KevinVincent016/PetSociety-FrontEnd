@@ -19,6 +19,9 @@ const nextConfig = {
           },
         ],
     },
+    eslint: {
+        dirs: ['src/!(components/ui)/**']
+    },
     async rewrites() {
         return [
             {

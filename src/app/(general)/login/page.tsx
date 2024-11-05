@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useLogin } from "@/hooks/auth/useLogin";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -27,6 +26,7 @@ export default function LoginPage() {
             setEmail("");
             setPassword("");
             alert("Credenciales inválidas");
+            console.log(error);
         }
     }
 

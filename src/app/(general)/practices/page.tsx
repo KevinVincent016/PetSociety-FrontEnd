@@ -1,7 +1,6 @@
     import { Metadata } from "next";
     import Logo from "@/media/Logo.png";
     import Image from "next/image";
-    import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
     
     export const metadata: Metadata = {
         title: "Nuestras Prácticas",

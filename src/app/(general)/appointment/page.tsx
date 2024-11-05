@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Download } from "lucide-react";
 import Brand from "../../../components/brand-logo/Brand";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 interface Appointment {
   id: string;
@@ -15,7 +14,7 @@ interface Appointment {
 }
 
 const AppointmentsList = () => {
-  const router = useRouter();
+  //const router = useRouter();
   const appointments: Appointment[] = [
     {
       id: "57931021",
@@ -43,9 +42,9 @@ const AppointmentsList = () => {
     },
   ];
 
-  const handleNewAppointment = () => {
-    router.push("/appointments/register");
-  };
+  //const handleNewAppointment = () => {
+  //  router.push("/appointments/register");
+  //};
 
   return (
     <div className="min-h-screen bg-white">

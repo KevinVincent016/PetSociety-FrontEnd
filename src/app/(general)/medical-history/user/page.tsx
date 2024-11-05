@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Download } from "lucide-react";
 import Brand from "../../../../components/brand-logo/Brand";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 interface Record {
   id: string;
@@ -12,16 +11,16 @@ interface Record {
 }
 
 const MedicalRecordsList = () => {
-  const router = useRouter();
+  //const router = useRouter();
   const records: Record[] = [
     { id: "57931021", date: "10/07/2023 - 16:45", patientName: "Bruno" },
     { id: "001239791", date: "03/06/2023", patientName: "Minino" },
     { id: "00121341", date: "28/05/2023", patientName: "Bruno" },
   ];
 
-  const handleNewRecord = () => {
-    router.push("/medical-history/register");
-  };
+  //const handleNewRecord = () => {
+  //  router.push("/medical-history/register");
+  //};
 
   return (
     <div className="min-h-screen bg-white">
