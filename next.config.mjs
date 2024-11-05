@@ -19,6 +19,14 @@ const nextConfig = {
           },
         ],
     },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: 'https://petsociety-production.up.railway.app/:path*'
+            }
+        ]
+    }
 };
 
 export default nextConfig;
