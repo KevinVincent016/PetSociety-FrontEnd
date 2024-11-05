@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@primer/octicons-react": "^19.11.0",
+    "@radix-ui/react-label": "^2.1.0",
     "@reduxjs/toolkit": "^2.3.0",
     "@tabler/icons-react": "^3.21.0",
     "axios": "^1.7.7",
