@@ -19,10 +19,6 @@ const MedicalRecordsList = () => {
     { id: "00121341", date: "28/05/2023", patientName: "Bruno" },
   ];
 
-  const handleNewRecord = () => {
-    router.push("/medical-history/register");
-  };
-
   return (
     <div className="min-h-screen bg-white">
       <Brand />
