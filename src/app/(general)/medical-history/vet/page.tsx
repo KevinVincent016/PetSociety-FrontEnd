@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Download } from "lucide-react";
 import Brand from "../../../../components/brand-logo/Brand";
 import { useRouter } from "next/navigation";

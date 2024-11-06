@@ -3,7 +3,6 @@ import Image from "next/image";
 import Logo from "@/media/Logo.png";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import PawIcon from "@/media/pata.png";
 

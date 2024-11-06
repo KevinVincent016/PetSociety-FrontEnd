@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-export default function usernamePage(){
+export default function RegisterPage(){
     
     // Datos del usuario
     const [username, setUsername] = useState(""); 
@@ -51,6 +51,7 @@ export default function usernamePage(){
                     setUsername("");
                     setPassword("");
                     alert("Error en el registro")
+                    console.log(e);
                 });
         }
     }

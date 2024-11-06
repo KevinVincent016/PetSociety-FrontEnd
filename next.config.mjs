@@ -19,6 +19,17 @@ const nextConfig = {
           },
         ],
     },
+    eslint: {
+        dirs: ['src/!(components/ui)/**']
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: 'https://petsociety-production.up.railway.app/:path*'
+            }
+        ]
+    }
 };
 
 export default nextConfig;
