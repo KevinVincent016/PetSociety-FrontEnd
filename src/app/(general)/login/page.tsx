@@ -4,14 +4,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { AuthService } from "@/services/auth.service";
 import { useAuth } from "@/app/context/AuthContext";
+import { useLogin } from "@/hooks/auth/useLogin";
+import { useCurrentUser } from "@/hooks/auth/useCurrentUser";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
     const { setToken } = useAuth();
+    const { login } = useLogin();
+    const { updateUser } = useCurrentUser();
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -22,10 +25,12 @@ export default function LoginPage() {
         }
 
         try {
-            const authService = new AuthService();
-            const data = await authService.login(email, password);
-            setToken(data.token);
-            router.push("/");
+            const userData = await login(email, password);
+            if (userData) {
+                setToken(userData.token);
+                await updateUser();
+                window.location.href = '/';
+            }
         } catch (error) {
             setEmail("");
             setPassword("");

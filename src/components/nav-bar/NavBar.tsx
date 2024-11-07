@@ -15,16 +15,19 @@ const publicNavItems = [
 
 const userNavItems = [
     {name:'Inicio', path: '/'},
-    {name:'Mi Perfil', path: '/my-profile'},
+    {name:'Mis Citas', path: '/appointment'},
     {name:'Historial Médico', path: '/medical-history/user'},
-    {name:'Contacto', path: '/contact'}
+    {name:'Contacto', path: '/contact'},
+    {name:'Mi Perfil', path: '/my-profile'}
 ];
 
 const vetNavItems = [
     {name:'Inicio', path: '/'},
-    {name:'Mi Perfil', path: '/my-profile'},
+    {name:'Pacientes', path: '/patient'},
+    {name:'Citas', path: '/appointment'},
     {name:'Historial Médico', path: '/medical-history/vet'},
-    {name:'Contacto', path: '/contact'}
+    {name:'Contacto', path: '/contact'},
+    {name:'Mi Perfil', path: '/my-profile'}
 ];
 
 export const Navbar = () => {
