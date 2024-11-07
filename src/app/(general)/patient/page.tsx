@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import { Download } from "lucide-react";
 import Brand from "@/components/brand-logo/Brand";
 import { useEffect, useState } from "react";
-import { useAuth } from '../../context/AuthContext';
-import { Patient } from '@/interface/patient';
-import { User } from '@/interface/user';
+import { useAuth } from "../../context/AuthContext";
+import { Patient } from "@/interface/patient";
+import { User } from "@/interface/user";
 
 const PatientsList = () => {
   const { token } = useAuth();
@@ -14,11 +14,14 @@ const PatientsList = () => {
 
   const fetchUser = async (userId: string): Promise<User | null> => {
     try {
-      const response = await fetch(`https://petsociety-production.up.railway.app/auth/${userId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `https://petsociety-production.up.railway.app/auth/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.ok) {
         return await response.json();
       } else {
@@ -33,23 +36,21 @@ const PatientsList = () => {
 
   const fetchPatients = async () => {
     try {
-      const response = await fetch("https://petsociety-production.up.railway.app/patients/", {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://petsociety-production.up.railway.app/patients/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      if (response.ok) {
-        const data: Patient[] = await response.json();
-        console.log(data); // Verifica que `userId` está presente en los datos de pacientes
-        const patientsWithUserDetails = await Promise.all(data.map(async (patient) => {
-          const user = await fetchUser(patient.userId);
-          return { ...patient, user };
-        }));
-        setPatients(patientsWithUserDetails);
-      } else {
-        console.error("Failed to fetch patients");
+      if (!response.ok) {
+        throw new Error("Failed to fetch patients");
       }
+
+      const data = await response.json(); // Extraer los datos JSON
+      setPatients(data);
     } catch (error) {
       console.error("Error fetching patients:", error);
     } finally {
@@ -87,12 +88,17 @@ const PatientsList = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-lg text-black font-bold">
-                  Paciente # {patient.id}
+                  Paciente {patient.user?.name}
                 </h3>
-                <p className="text-sm text-black">Dirección: {patient.address}</p>
-                <p className="text-sm text-black">Teléfono: {patient.phone_number}</p>
-                <p className="text-sm text-black">Dueño: {patient.userId}</p>
-                
+                <p className="text-sm text-black">
+                  Correo: {patient.user?.email}
+                </p>
+                <p className="text-sm text-black">
+                  Dirección: {patient.address}
+                </p>
+                <p className="text-sm text-black">
+                  Teléfono: {patient.phone_number}
+                </p>
               </div>
               <button className="p-2 bg-black text-white hover:bg-gray-100 rounded-full">
                 <Download className="h-5 w-5" />

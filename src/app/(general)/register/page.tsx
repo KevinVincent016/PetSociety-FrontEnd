@@ -53,14 +53,14 @@ export default function RegisterPage() {
         });
         console.log("Usuario registrado:", response.data);
 
-        // Crear paciente
         await axios.post(`${BASE_URL}/patients/register`, {
           address,
           phone_number: phone,
-          user: response.data.id,
+          userId: response.data.id,
         });
+        
 
-        console.log("Paciente creado");
+        console.log("Paciente creado", response.data);
         setStep(2);
       } catch (error) {
         console.error("Error al registrar usuario o paciente:", error);
