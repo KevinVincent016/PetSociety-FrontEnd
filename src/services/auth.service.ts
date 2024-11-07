@@ -5,12 +5,12 @@ export class AuthService {
 
     public constructor() {
         this.axios = axios.create({
-            baseURL: '/api',
+            baseURL: 'https://petsociety-production.up.railway.app',
             headers: {
                 'Content-Type': 'application/json'
             },
             timeout: 5000
-        })
+        });
     }
 
     public async login(email: string, password: string): Promise<any> {
