@@ -2,7 +2,7 @@
 
 import { Download } from "lucide-react";
 import Brand from "../../../components/brand-logo/Brand";
-//import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface Appointment {
   id: string;

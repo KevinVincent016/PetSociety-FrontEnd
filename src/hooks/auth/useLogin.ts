@@ -10,8 +10,9 @@ export const useLogin = () => {
             if (response) {
                 const userData = {
                     email: response.email,
-                    name: response.email.split('@')[0],
-                    token: response.token
+                    user_id: response.user_id,
+                    token: response.token,
+                    role: response.role,
                 };
                 Cookies.set('currentUser', JSON.stringify(userData));
                 return userData;
