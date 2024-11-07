@@ -11,6 +11,7 @@ const PatientsList = () => {
   const { token } = useAuth();
   const [patients, setPatients] = useState<Patient[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchUser = async (userId: string): Promise<User | null> => {
     try {
@@ -64,6 +65,10 @@ const PatientsList = () => {
     }
   }, [token]);
 
+  const filteredPatients = patients.filter((patient) =>
+    patient.user?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -77,10 +82,12 @@ const PatientsList = () => {
             type="text"
             placeholder="Buscar pacientes..."
             className="w-full p-3 border border-gray-300 rounded-lg text-black"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
-        {patients.map((patient) => (
+        {filteredPatients.map((patient) => (
           <div
             key={patient.id}
             className="mb-4 p-4 border rounded-lg bg-white shadow-sm"
@@ -100,9 +107,6 @@ const PatientsList = () => {
                   Teléfono: {patient.phone_number}
                 </p>
               </div>
-              <button className="p-2 bg-black text-white hover:bg-gray-100 rounded-full">
-                <Download className="h-5 w-5" />
-              </button>
             </div>
           </div>
         ))}
