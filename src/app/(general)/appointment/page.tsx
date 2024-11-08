@@ -12,7 +12,14 @@ interface Appointment {
   status: string;
   created_at: string;
   updated_at: string;
-  veterinarian: string | null;
+  veterinarian: {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    created_at: string;
+    updated_at: string;
+  } | null;
   pet: {
     name: string;
     species?: string;
@@ -90,7 +97,7 @@ Género: ${appointment.pet.gender || 'No especificado'}` : 'No hay información 
 
 INFORMACIÓN DEL VETERINARIO
 =======================
-${appointment.veterinarian ? `Nombre: ${appointment.veterinarian}` : 'Veterinario no asignado'}`;
+${appointment.veterinarian ? `Nombre: ${appointment.veterinarian.name}` : 'Veterinario no asignado'}`;
 
     // Crear el blob y el enlace de descarga
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
@@ -159,7 +166,7 @@ ${appointment.veterinarian ? `Nombre: ${appointment.veterinarian}` : 'Veterinari
                   Estado: {appointment.status === 'scheduled' ? 'Programada' : appointment.status}
                 </p>
                 <p className="text-sm text-black">
-                  Veterinario: {appointment.veterinarian || 'No asignado'}
+                  Veterinario: {appointment.veterinarian?.name || 'No asignado'}
                 </p>
               </div>
               <button 
